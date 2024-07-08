@@ -1,5 +1,6 @@
 package com.marcelo.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -38,7 +39,7 @@ public class Pessoa {
 	private String documento;
 
 	@NotNull
-	@Size(max = 8)
+	@Size(max = 255)
 	@Column(name = "tx_profissao")
 	private String profissao;
 
@@ -48,11 +49,13 @@ public class Pessoa {
 	private EstadoCivilEnum estadoCivil;
 
 	@NotNull
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
 	
-	
+
+	public Pessoa() {
+	}
 	
 
 	public Pessoa(
@@ -62,7 +65,6 @@ public class Pessoa {
 			@NotNull @Size(max = 8) String profissao,
 			@NotNull EstadoCivilEnum estadoCivil, 
 			@NotNull Endereco endereco) {
-		super();
 		this.nome = nome;
 		this.tipo = tipo;
 		this.documento = documento;
