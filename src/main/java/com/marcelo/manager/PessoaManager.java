@@ -1,7 +1,8 @@
 package com.marcelo.manager;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -51,6 +52,11 @@ public class PessoaManager {
 	public void deletePessoa(Long idPessoa) {		
 		Pessoa pessoa = pessoaRepository.findById(idPessoa).orElseThrow();
 		pessoaRepository.delete(pessoa);		
+	}
+
+	public List<Pessoa> findAll() {
+		
+		return pessoaRepository.findAll();
 	}
 
 }
