@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import com.marcelo.controller.schema.PessoaReq;
+import com.marcelo.controller.schema.PessoaResponse;
 import com.marcelo.model.Endereco;
 import com.marcelo.model.Pessoa;
 import com.marcelo.repository.EnderecoRepository;
@@ -54,7 +55,7 @@ public class PessoaManager {
 		pessoaRepository.delete(pessoa);		
 	}
 
-	public List<Pessoa> findAll() {
+	public List<PessoaResponse> findAll() {
 		
 		return pessoaRepository.findAll();
 	}

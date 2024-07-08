@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.marcelo.controller.schema.PessoaReq;
+import com.marcelo.controller.schema.PessoaResponse;
 import com.marcelo.manager.PessoaManager;
 import com.marcelo.model.Pessoa;
 
@@ -32,7 +33,7 @@ public class PessoaController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Pessoa>> findAll(){
+	public ResponseEntity<List<PessoaResponse>> findAll(){
 		
 		return ResponseEntity.ok(pessoaManager.findAll());
 	}
