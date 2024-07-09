@@ -19,8 +19,10 @@ import com.marcelo.controller.schema.PessoaUpd;
 import com.marcelo.manager.PessoaManager;
 import com.marcelo.model.Pessoa;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
+@Tag(name = "Pessoas")
 @RestController
 @RequestMapping("pessoas")
 public class PessoaController {
