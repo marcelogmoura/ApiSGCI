@@ -12,7 +12,6 @@ public class PessoaFilter extends FilterPageable{
 	public String documento;
 	
 	
-	
 	public String getNome() {
 		return nome;
 	}
@@ -49,7 +48,7 @@ public class PessoaFilter extends FilterPageable{
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
-	
+
 
 	
 }

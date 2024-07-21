@@ -73,8 +73,6 @@ public class PessoaManager {
 	public ResponsePagedCommom<PessoaResponse> findAll(@Valid PessoaFilter filtros) {
 		
 		
-		
-		
 		// filtragem dinamica
 		
 		Specification<Pessoa> filtrosCustomizados = (root, query, cb) -> {
@@ -104,24 +102,29 @@ public class PessoaManager {
 			
 		};
 		
-		List<PessoaResponse> listResponse = new ArrayList<PessoaResponse>(); 
 		
-		Page<Pessoa> data = pessoaRepository.findAll(
+		
+		Page<Pessoa> listPessoaBd = pessoaRepository.findAll(
 						filtrosCustomizados, 
 						PageRequest.of(filtros.getPage(), 
 						filtros.getSize(), 
 						Sort.by(filtros.getDirection(), 
 						filtros.getOrdenarPor())));
-	
 		
-		data.forEach(item -> {
+	    List<PessoaResponse> listResponse = new ArrayList<PessoaResponse>(); 
+		
+		listPessoaBd.forEach(item -> {
 			EnderecoResponse enderecoResponse = EnderecoMapper.INSTANCE.toEnderecoResponse(item.getEndereco());
 			PessoaResponse pessoaResponse = PessoaMapper.INSTANCE.toPessoaResponse(item, enderecoResponse);
 			listResponse.add(pessoaResponse);
 		});
 		
 		
-		return new ResponsePagedCommom<PessoaResponse>(listResponse, null, null, null);
+		return new ResponsePagedCommom<PessoaResponse>(
+				listResponse,
+				listPessoaBd.getTotalElements(), 
+				listPessoaBd.getSize(), 
+				listPessoaBd.getTotalPages());
 	}
 
 	@Transactional

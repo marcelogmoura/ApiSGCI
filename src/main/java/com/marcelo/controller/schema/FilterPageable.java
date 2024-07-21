@@ -18,9 +18,9 @@ public class FilterPageable{
 
 		@NotNull
 		public String ordenarPor;
-		
-		
 
+		
+		
 		public Integer getPage() {
 			return page;
 		}
@@ -52,6 +52,9 @@ public class FilterPageable{
 		public void setOrdenarPor(String ordenarPor) {
 			this.ordenarPor = ordenarPor;
 		}
+		
+
+
 	
 
 		

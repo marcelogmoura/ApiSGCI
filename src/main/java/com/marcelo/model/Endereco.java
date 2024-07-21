@@ -22,7 +22,6 @@ public class Endereco {
 	@Size(max = 8)
 	@Column(name = "cep")
 	private String cep;
-
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "estado")
