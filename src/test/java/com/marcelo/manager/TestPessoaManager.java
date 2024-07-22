@@ -22,7 +22,7 @@ import com.marcelo.repository.PessoaRepository;
 
 @ActiveProfiles("test")
 @SpringBootTest
-public class TestPessoaManager {
+class TestPessoaManager {
 	
 	@Autowired
 	private PessoaManager pessoaManager;
