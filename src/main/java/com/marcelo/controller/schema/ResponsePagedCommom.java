@@ -8,17 +8,16 @@ public class ResponsePagedCommom<T> {
 	private Long totalRecords;
 	private Integer totalPages;
 	private Integer pageSize;
+	private Integer page;
+			
 	
-	
-	
-	public ResponsePagedCommom() {
-	}
-	public ResponsePagedCommom(List<T> data, Long totalRecords, Integer totalPages, Integer pageSize) {
+	public ResponsePagedCommom(List<T> data, Long totalRecords, Integer totalPages, Integer pageSize, Integer page) {
+		super();
 		this.data = data;
 		this.totalRecords = totalRecords;
 		this.totalPages = totalPages;
 		this.pageSize = pageSize;
-		
+		this.page = page;
 	}
 	public List<T> getData() {
 		return data;
@@ -44,6 +43,14 @@ public class ResponsePagedCommom<T> {
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	
+	
 	
 
 
